@@ -126,7 +126,8 @@ const Index = () => {
                 {benefitsData[key as keyof typeof benefitsData].map((benefit, index) => (
                   <Card 
                     key={index}
-                    className="overflow-hidden bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 shadow-md group"
+                    className="overflow-hidden bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 shadow-md group animate-fade-in-up opacity-0"
+                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="h-48 overflow-hidden">
                       <img 
