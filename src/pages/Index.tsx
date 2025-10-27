@@ -83,7 +83,7 @@ const Index = () => {
           <h1 className="text-4xl font-bold text-slate-800 mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             Преимущества работы с нами
           </h1>
-          <p className="text-lg text-slate-600" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto" style={{ fontFamily: 'Open Sans, sans-serif' }}>
             Мы создаем условия для роста и развития каждого сотрудника
           </p>
         </div>
@@ -129,7 +129,7 @@ const Index = () => {
                     className="overflow-hidden bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 shadow-md group animate-fade-in-up opacity-0"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="h-48 overflow-hidden">
+                    <div className="h-60 overflow-hidden">
                       <img 
                         src={benefit.image} 
                         alt={benefit.title}
