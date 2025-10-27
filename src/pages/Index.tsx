@@ -1,23 +1,80 @@
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const Index = () => {
-  const benefits = [
-    {
-      image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/710068b1-bad0-402f-b65d-1e2efa9e5faf.jpg',
-      title: 'Стабильная заработная плата',
-      description: 'Гарантированная выплата заработной платы два раза в месяц без задержек. Прозрачная система начисления премий и бонусов за достижение KPI.'
-    },
-    {
-      image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/c91e096c-ab76-4274-bb67-c8c26ad62768.jpg',
-      title: 'Оплачиваемый отпуск',
-      description: 'Ежегодный оплачиваемый отпуск 28 календарных дней с возможностью разделения на части. Дополнительные дни отпуска за выслугу лет.'
-    },
-    {
-      image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/460a4e42-a236-4500-b189-595250d2fc42.jpg',
-      title: 'Полный социальный пакет',
-      description: 'Добровольное медицинское страхование для сотрудника и членов семьи. Корпоративное обучение и программы развития персонала.'
-    }
-  ];
+  const [activeTab, setActiveTab] = useState('transits');
+
+  const benefitsData = {
+    transits: [
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/710068b1-bad0-402f-b65d-1e2efa9e5faf.jpg',
+        title: 'Трансфер',
+        description: 'Организуем комфортный переезд к месту работы. Полное сопровождение на всех этапах релокации с заботой о вашем удобстве.'
+      },
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/c91e096c-ab76-4274-bb67-c8c26ad62768.jpg',
+        title: 'Трудоустройство',
+        description: 'Помогаем с оформлением всех документов. Юридическое сопровождение и консультации на каждом этапе трудоустройства.'
+      },
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/460a4e42-a236-4500-b189-595250d2fc42.jpg',
+        title: 'Корпоративная жизнь',
+        description: 'Активная корпоративная культура с мероприятиями и командообразованием. Создаем комфортную атмосферу для работы и развития.'
+      }
+    ],
+    salary: [
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/710068b1-bad0-402f-b65d-1e2efa9e5faf.jpg',
+        title: 'Выплаты 2 раза в месяц',
+        description: 'Гарантированная выплата заработной платы два раза в месяц без задержек. Прозрачная система расчетов и начислений.'
+      },
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/c91e096c-ab76-4274-bb67-c8c26ad62768.jpg',
+        title: 'Система премий',
+        description: 'Прозрачная система начисления премий и бонусов за достижение KPI. Мотивируем результативность и инициативность.'
+      },
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/460a4e42-a236-4500-b189-595250d2fc42.jpg',
+        title: 'Ежегодная индексация',
+        description: 'Регулярная индексация заработной платы с учетом инфляции и результатов работы. Растем вместе с вами.'
+      }
+    ],
+    vacation: [
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/710068b1-bad0-402f-b65d-1e2efa9e5faf.jpg',
+        title: '28 календарных дней',
+        description: 'Ежегодный оплачиваемый отпуск 28 календарных дней с возможностью разделения на части по вашему желанию.'
+      },
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/c91e096c-ab76-4274-bb67-c8c26ad62768.jpg',
+        title: 'Дополнительные дни',
+        description: 'Дополнительные дни отпуска за выслугу лет. Ценим долгосрочное сотрудничество и лояльность сотрудников.'
+      },
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/460a4e42-a236-4500-b189-595250d2fc42.jpg',
+        title: 'Гибкое планирование',
+        description: 'Удобный график согласования дат отпуска с учетом ваших планов. Планируйте отдых когда вам удобно.'
+      }
+    ],
+    social: [
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/710068b1-bad0-402f-b65d-1e2efa9e5faf.jpg',
+        title: 'ДМС для всей семьи',
+        description: 'Добровольное медицинское страхование для сотрудника и членов семьи. Забота о здоровье ваших близких.'
+      },
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/c91e096c-ab76-4274-bb67-c8c26ad62768.jpg',
+        title: 'Корпоративное обучение',
+        description: 'Программы развития персонала и профессионального роста. Инвестируем в ваше развитие и карьеру.'
+      },
+      {
+        image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/460a4e42-a236-4500-b189-595250d2fc42.jpg',
+        title: 'Компенсация расходов',
+        description: 'Компенсация фитнеса, питания и проезда к месту работы. Поддерживаем ваш комфорт и здоровый образ жизни.'
+      }
+    ]
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center">
@@ -63,168 +120,34 @@ const Index = () => {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="transits" className="mt-0">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <div className="lg:col-span-2 grid grid-cols-2 gap-3">
-                {benefits.transits.items.map((item, index) => (
+          {Object.keys(benefitsData).map((key) => (
+            <TabsContent key={key} value={key} className="mt-0">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {benefitsData[key as keyof typeof benefitsData].map((benefit, index) => (
                   <Card 
                     key={index}
-                    className="p-5 bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 shadow-md group"
+                    className="overflow-hidden bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 shadow-md group"
                   >
-                    <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Icon name={item.icon} className="text-white" size={32} />
-                      </div>
-                      <h3 className="text-base font-semibold text-slate-800" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                        {item.label}
+                    <div className="h-48 overflow-hidden">
+                      <img 
+                        src={benefit.image} 
+                        alt={benefit.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="text-lg font-semibold text-slate-800 mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                        {benefit.title}
                       </h3>
+                      <p className="text-sm text-slate-600 leading-relaxed" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+                        {benefit.description}
+                      </p>
                     </div>
                   </Card>
                 ))}
               </div>
-              <div className="hidden lg:flex flex-col gap-2">
-                {photos.map((photo, index) => (
-                  <div 
-                    key={index} 
-                    className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                    style={{ flex: index === 1 ? '1.5' : '1' }}
-                  >
-                    <img 
-                      src={photo} 
-                      alt={`Сотрудник ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          <TabsContent value="salary" className="mt-0">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <div className="lg:col-span-2">
-                <Card className="p-5 bg-white border-0 shadow-lg h-full flex flex-col justify-between">
-                  <p className="text-base text-slate-700 leading-relaxed mb-4" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-                    {benefits.salary.description}
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    {benefits.salary.features.map((feature, index) => (
-                      <div 
-                        key={index}
-                        className="flex items-center space-x-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors duration-300"
-                      >
-                        <div className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center flex-shrink-0">
-                          <Icon name={feature.icon} className="text-white" size={20} />
-                        </div>
-                        <p className="text-xs font-medium text-slate-700" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-                          {feature.text}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-              </div>
-              <div className="hidden lg:flex flex-col gap-2">
-                {photos.map((photo, index) => (
-                  <div 
-                    key={index} 
-                    className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                    style={{ flex: index === 1 ? '1.5' : '1' }}
-                  >
-                    <img 
-                      src={photo} 
-                      alt={`Сотрудник ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          <TabsContent value="vacation" className="mt-0">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <div className="lg:col-span-2">
-                <Card className="p-5 bg-white border-0 shadow-lg h-full flex flex-col justify-between">
-                  <p className="text-base text-slate-700 leading-relaxed mb-4" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-                    {benefits.vacation.description}
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    {benefits.vacation.features.map((feature, index) => (
-                      <div 
-                        key={index}
-                        className="flex items-center space-x-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors duration-300"
-                      >
-                        <div className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center flex-shrink-0">
-                          <Icon name={feature.icon} className="text-white" size={20} />
-                        </div>
-                        <p className="text-xs font-medium text-slate-700" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-                          {feature.text}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-              </div>
-              <div className="hidden lg:flex flex-col gap-2">
-                {photos.map((photo, index) => (
-                  <div 
-                    key={index} 
-                    className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                    style={{ flex: index === 1 ? '1.5' : '1' }}
-                  >
-                    <img 
-                      src={photo} 
-                      alt={`Сотрудник ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          <TabsContent value="social" className="mt-0">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <div className="lg:col-span-2">
-                <Card className="p-5 bg-white border-0 shadow-lg h-full flex flex-col justify-between">
-                  <p className="text-base text-slate-700 leading-relaxed mb-4" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-                    {benefits.social.description}
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    {benefits.social.features.map((feature, index) => (
-                      <div 
-                        key={index}
-                        className="flex items-center space-x-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors duration-300"
-                      >
-                        <div className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center flex-shrink-0">
-                          <Icon name={feature.icon} className="text-white" size={20} />
-                        </div>
-                        <p className="text-xs font-medium text-slate-700" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-                          {feature.text}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-              </div>
-              <div className="hidden lg:flex flex-col gap-2">
-                {photos.map((photo, index) => (
-                  <div 
-                    key={index} 
-                    className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-                    style={{ flex: index === 1 ? '1.5' : '1' }}
-                  >
-                    <img 
-                      src={photo} 
-                      alt={`Сотрудник ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </TabsContent>
+            </TabsContent>
+          ))}
         </Tabs>
       </div>
     </div>
