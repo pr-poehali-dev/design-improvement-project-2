@@ -1,54 +1,22 @@
-import { useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState('transits');
-
-  const benefits = {
-    transits: {
-      title: 'Авторские транзиты',
-      items: [
-        { icon: 'Plane', label: 'Трансфер' },
-        { icon: 'Briefcase', label: 'Трудоустройство' },
-        { icon: 'Users', label: 'Корпоративная жизнь' },
-        { icon: 'Shield', label: 'Промывание' }
-      ]
-    },
-    salary: {
+  const benefits = [
+    {
+      image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/710068b1-bad0-402f-b65d-1e2efa9e5faf.jpg',
       title: 'Стабильная заработная плата',
-      description: 'Гарантированная выплата заработной платы два раза в месяц без задержек. Прозрачная система начисления премий и бонусов за достижение KPI. Ежегодная индексация заработной платы с учетом инфляции и результатов работы.',
-      features: [
-        { icon: 'DollarSign', text: 'Выплаты 2 раза в месяц' },
-        { icon: 'TrendingUp', text: 'Прозрачная система премий' },
-        { icon: 'Award', text: 'Ежегодная индексация' }
-      ]
+      description: 'Гарантированная выплата заработной платы два раза в месяц без задержек. Прозрачная система начисления премий и бонусов за достижение KPI.'
     },
-    vacation: {
+    {
+      image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/c91e096c-ab76-4274-bb67-c8c26ad62768.jpg',
       title: 'Оплачиваемый отпуск',
-      description: 'Ежегодный оплачиваемый отпуск 28 календарных дней с возможностью разделения на части. Дополнительные дни отпуска за выслугу лет. Гибкий график согласования дат отпуска с учетом ваших планов.',
-      features: [
-        { icon: 'Calendar', text: '28 календарных дней отпуска' },
-        { icon: 'Plus', text: 'Дополнительные дни за стаж' },
-        { icon: 'Clock', text: 'Гибкое планирование дат' }
-      ]
+      description: 'Ежегодный оплачиваемый отпуск 28 календарных дней с возможностью разделения на части. Дополнительные дни отпуска за выслугу лет.'
     },
-    social: {
+    {
+      image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/460a4e42-a236-4500-b189-595250d2fc42.jpg',
       title: 'Полный социальный пакет',
-      description: 'Добровольное медицинское страхование для сотрудника и членов семьи. Корпоративное обучение и программы развития персонала. Компенсация фитнеса, питания и проезда к месту работы.',
-      features: [
-        { icon: 'Heart', text: 'ДМС для всей семьи' },
-        { icon: 'GraduationCap', text: 'Программы обучения' },
-        { icon: 'Coffee', text: 'Компенсация расходов' }
-      ]
+      description: 'Добровольное медицинское страхование для сотрудника и членов семьи. Корпоративное обучение и программы развития персонала.'
     }
-  };
-
-  const photos = [
-    'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/710068b1-bad0-402f-b65d-1e2efa9e5faf.jpg',
-    'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/c91e096c-ab76-4274-bb67-c8c26ad62768.jpg',
-    'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/460a4e42-a236-4500-b189-595250d2fc42.jpg'
   ];
 
   return (
