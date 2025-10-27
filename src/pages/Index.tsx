@@ -3,24 +3,24 @@ import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState('transits');
+  const [activeTab, setActiveTab] = useState('employment');
 
   const benefitsData = {
-    transits: [
+    employment: [
       {
         image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/710068b1-bad0-402f-b65d-1e2efa9e5faf.jpg',
-        title: 'Трансфер',
-        description: 'Организуем комфортный переезд к месту работы. Полное сопровождение на всех этапах релокации с заботой о вашем удобстве.'
+        title: 'Оформление по ТК РФ',
+        description: 'Официальное трудоустройство согласно Трудовому кодексу РФ. Все необходимые документы, трудовой договор и запись в трудовой книжке.'
       },
       {
         image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/c91e096c-ab76-4274-bb67-c8c26ad62768.jpg',
-        title: 'Трудоустройство',
-        description: 'Помогаем с оформлением всех документов. Юридическое сопровождение и консультации на каждом этапе трудоустройства.'
+        title: 'Оплачиваемые отпуска',
+        description: 'Ежегодный оплачиваемый отпуск в соответствии с ТК РФ. Гарантированные отпускные выплаты и возможность планирования отдыха.'
       },
       {
         image: 'https://cdn.poehali.dev/projects/f59962f1-00b1-48e0-bf1e-99adf89a0a47/files/460a4e42-a236-4500-b189-595250d2fc42.jpg',
-        title: 'Корпоративная жизнь',
-        description: 'Активная корпоративная культура с мероприятиями и командообразованием. Создаем комфортную атмосферу для работы и развития.'
+        title: 'Социальные гарантии',
+        description: 'Полный пакет социальных гарантий по ТК РФ: больничные, декретные, пенсионные отчисления. Защита ваших трудовых прав.'
       }
     ],
     salary: [
@@ -91,11 +91,11 @@ const Index = () => {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="w-full grid grid-cols-2 md:grid-cols-4 h-auto gap-2 bg-white/50 backdrop-blur-sm p-1.5 rounded-xl mb-4">
             <TabsTrigger 
-              value="transits" 
+              value="employment" 
               className="data-[state=active]:bg-blue-500 data-[state=active]:text-white text-slate-700 py-2 text-sm rounded-lg transition-all duration-300"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
-              Авторские транзиты
+              Официальное трудоустройство
             </TabsTrigger>
             <TabsTrigger 
               value="salary"
